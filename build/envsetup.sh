@@ -1,4 +1,4 @@
-function __print_graphene_functions_help() {
+function __print_aosp_functions_help() {
 cat <<EOF
 Invoke ". build/envsetup.sh" from your shell to add the following functions to your environment:
 - lunch:     lunch <product_name>-<build_variant>
@@ -10,7 +10,7 @@ EOF
     local T=$(gettop)
     local A=""
     local i
-    for i in `cat $T/vendor/graphene/build/envsetup.sh | sed -n "/^[[:blank:]]*function /s/function \([a-z_]*\).*/\1/p" | sort | uniq`; do
+    for i in `cat $T/vendor/aosp/build/envsetup.sh | sed -n "/^[[:blank:]]*function /s/function \([a-z_]*\).*/\1/p" | sort | uniq`; do
       A="$A $i"
     done
     echo $A
@@ -48,7 +48,7 @@ function mk_timer()
 function repopick()
 {
     T=$(gettop)
-    $T/vendor/graphene/build/tools/repopick.py $@
+    $T/vendor/aosp/build/tools/repopick.py $@
 }
 
 # Repo sync with various flags I'm lazy to type each time
@@ -62,11 +62,11 @@ function gerrit()
         echo -e "Please run this inside a git directory";
     else
         git remote rm gerrit 2>/dev/null;
-        [[ -z "${GERRIT_USER}" ]] && export GERRIT_USER=$(git config --get review.review.graphene.dev.username);
+        [[ -z "${GERRIT_USER}" ]] && export GERRIT_USER=$(git config --get review.review.aosp.dev.username);
         if [[ -z "${GERRIT_USER}" ]]; then
-            git remote add gerrit $(git remote -v | grep -i "github\.com[:\/]Graphene" | awk '{print $2}' | uniq | sed -e "s|.*github.com[:\/]Graphene|ssh://review.graphenefest.org:29418/GRAPHENE|");
+            git remote add gerrit $(git remote -v | grep -i "github\.com[:\/]Graphene" | awk '{print $2}' | uniq | sed -e "s|.*github.com[:\/]Graphene|ssh://review.GrapheneOS.org:29418/GRAPHENE|");
         else
-            git remote add gerrit $(git remote -v | grep -i "github\.com[:\/]Graphene" | awk '{print $2}' | uniq | sed -e "s|.*github.com[:\/]Graphene|ssh://${GERRIT_USER}@review.graphenefest.org:29418/GRAPHENE|");
+            git remote add gerrit $(git remote -v | grep -i "github\.com[:\/]Graphene" | awk '{print $2}' | uniq | sed -e "s|.*github.com[:\/]Graphene|ssh://${GERRIT_USER}@review.GrapheneOS.org:29418/GRAPHENE|");
         fi
     fi
 }
@@ -108,5 +108,5 @@ function fixup_common_out_dir() {
 export SKIP_ABI_CHECKS=true
 
 # Override host metadata to make builds more reproducible and avoid leaking info
-export BUILD_HOSTNAME=graphenebox
+export BUILD_HOSTNAME=aospbox
 export BUILD_USERNAME=private

@@ -1,5 +1,5 @@
-# Copyright (C) 2018-2020 The LineageOS Project
-# Copyright (C) 2021 grapheneFest
+# Copyright (C) 2019-2020 The LineageOS Project
+# Copyright (C) 2021 GrapheneOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,12 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/google/atv/products/aosp_tv_arm64.mk)
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
-include vendor/graphene/build/target/product/graphene_generic_tv_target.mk
-
-TARGET_NO_KERNEL_OVERRIDE := true
-
-PRODUCT_NAME := graphene_tv_arm64
-
-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS :=
+# Allow building otatools
+TARGET_FORCE_OTA_PACKAGE := true

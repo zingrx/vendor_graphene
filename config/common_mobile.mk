@@ -1,5 +1,5 @@
 # Inherit common mobile GrapheneFest stuff
-$(call inherit-product, vendor/graphene/config/common.mk)
+$(call inherit-product, vendor/aosp/config/common.mk)
 
 # Default notification/alarm sounds
 PRODUCT_PRODUCT_PROPERTIES += \

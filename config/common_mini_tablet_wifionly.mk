@@ -1,5 +1,5 @@
-# Inherit mini common grapheneFest stuff
-$(call inherit-product, vendor/graphene/config/common_mini.mk)
+# Inherit mini common GrapheneOS stuff
+$(call inherit-product, vendor/aosp/config/common_mini.mk)
 
 # Required packages
 PRODUCT_PACKAGES += \

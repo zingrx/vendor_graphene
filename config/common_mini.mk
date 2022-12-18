@@ -1,4 +1,4 @@
-# Inherit mini common grapheneFest stuff
-$(call inherit-product, vendor/graphene/config/common_mobile.mk)
+# Inherit mini common GrapheneOS stuff
+$(call inherit-product, vendor/aosp/config/common_mobile.mk)
 
 PRODUCT_SIZE := mini

@@ -1,5 +1,5 @@
-# Copyright (C) 2021 The LineageOS Project
-# Copyright (C) 2021 grapheneFest
+# Copyright (C) 2018-2020 The LineageOS Project
+# Copyright (C) 2021 GrapheneOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,13 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, build/target/product/sdk_phone_x86_64.mk)
+include vendor/aosp/build/target/product/aosp_generic_car_target.mk
 
-include vendor/graphene/build/target/product/graphene_generic_target.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_arm64.mk)
 
-# Enable mainline checking
-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
+TARGET_NO_KERNEL_OVERRIDE := true
 
-# Overrides
-PRODUCT_NAME := graphene_sdk_phone_x86_64
-PRODUCT_MODEL := LineageOS Android SDK built for x86_64
+PRODUCT_NAME := aosp_sdk_car_arm64

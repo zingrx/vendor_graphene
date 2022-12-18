@@ -15,29 +15,29 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/graphene_gsi_arm.mk \
-    $(LOCAL_DIR)/graphene_gsi_arm64.mk \
-    $(LOCAL_DIR)/graphene_gsi_x86.mk \
-    $(LOCAL_DIR)/graphene_gsi_x86_64.mk \
-    $(LOCAL_DIR)/graphene_tv_arm.mk \
-    $(LOCAL_DIR)/graphene_tv_arm64.mk \
-    $(LOCAL_DIR)/graphene_tv_x86.mk \
-    $(LOCAL_DIR)/graphene_tv_x86_64.mk \
-    $(LOCAL_DIR)/graphene_sdk_car_arm64.mk \
-    $(LOCAL_DIR)/graphene_sdk_car_x86_64.mk \
-    $(LOCAL_DIR)/graphene_sdk_phone_x86.mk \
-    $(LOCAL_DIR)/graphene_sdk_phone_x86_64.mk
+    $(LOCAL_DIR)/aosp_gsi_arm.mk \
+    $(LOCAL_DIR)/aosp_gsi_arm64.mk \
+    $(LOCAL_DIR)/aosp_gsi_x86.mk \
+    $(LOCAL_DIR)/aosp_gsi_x86_64.mk \
+    $(LOCAL_DIR)/aosp_tv_arm.mk \
+    $(LOCAL_DIR)/aosp_tv_arm64.mk \
+    $(LOCAL_DIR)/aosp_tv_x86.mk \
+    $(LOCAL_DIR)/aosp_tv_x86_64.mk \
+    $(LOCAL_DIR)/aosp_sdk_car_arm64.mk \
+    $(LOCAL_DIR)/aosp_sdk_car_x86_64.mk \
+    $(LOCAL_DIR)/aosp_sdk_phone_x86.mk \
+    $(LOCAL_DIR)/aosp_sdk_phone_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    graphene_gsi_arm-userdebug \
-    graphene_gsi_arm64-userdebug \
-    graphene_gsi_x86-userdebug \
-    graphene_gsi_x86_64-userdebug \
-    graphene_tv_arm-userdebug \
-    graphene_tv_arm64-userdebug \
-    graphene_tv_x86-userdebug \
-    graphene_tv_x86_64-userdebug \
-    graphene_sdk_car_arm64-userdebug \
-    graphene_sdk_car_x86_64-userdebug \
-    graphene_sdk_phone_x86-userdebug \
-    graphene_sdk_phone_x86_64-userdebug
+    aosp_gsi_arm-userdebug \
+    aosp_gsi_arm64-userdebug \
+    aosp_gsi_x86-userdebug \
+    aosp_gsi_x86_64-userdebug \
+    aosp_tv_arm-userdebug \
+    aosp_tv_arm64-userdebug \
+    aosp_tv_x86-userdebug \
+    aosp_tv_x86_64-userdebug \
+    aosp_sdk_car_arm64-userdebug \
+    aosp_sdk_car_x86_64-userdebug \
+    aosp_sdk_phone_x86-userdebug \
+    aosp_sdk_phone_x86_64-userdebug

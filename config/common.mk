@@ -27,18 +27,18 @@ endif
 # Backup Tool
 ifneq ($(TARGET_EXCLUDE_BACKUPTOOL),true)
 PRODUCT_COPY_FILES += \
-    vendor/graphene/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/graphene/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/graphene/prebuilt/common/bin/50-graphene.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-graphene.sh
+    vendor/aosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/aosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/aosp/prebuilt/common/bin/50-aosp.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-aosp.sh
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-    system/addon.d/50-graphene.sh
+    system/addon.d/50-aosp.sh
 
 ifneq ($(strip $(AB_OTA_PARTITIONS) $(AB_OTA_POSTINSTALL_CONFIG)),)
 PRODUCT_COPY_FILES += \
-    vendor/graphene/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/graphene/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/graphene/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/aosp/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/aosp/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/aosp/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/bin/backuptool_ab.sh \
@@ -52,9 +52,9 @@ PRODUCT_SYSTEM_PROPERTIES += \
     ro.ota.allow_downgrade=true
 endif
 
-# grapheneFest-specific init rc file
+# GrapheneOS-specific init rc file
 PRODUCT_COPY_FILES += \
-    vendor/graphene/prebuilt/common/etc/init/init.graphene-system_ext.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.graphene-system_ext.rc
+    vendor/aosp/prebuilt/common/etc/init/init.aosp-system_ext.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.aosp-system_ext.rc
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -69,21 +69,21 @@ PRODUCT_SYSTEM_PROPERTIES += \
     ro.control_privapp_permissions=enforce
 
 # Include AOSP audio files
-include vendor/graphene/config/aosp_audio.mk
+include vendor/aosp/config/aosp_audio.mk
 
-# Include grapheneFest audio files
-include vendor/graphene/config/graphene_audio.mk
+# Include GrapheneOS audio files
+include vendor/aosp/config/graphene_audio.mk
 
 # Include extra packages
-include vendor/graphene/config/packages.mk
+include vendor/aosp/config/packages.mk
 
 # Permissions for Google product apps
 PRODUCT_COPY_FILES += \
-    vendor/graphene/prebuilt/common/etc/permissions/default-permissions-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-product.xml
+    vendor/aosp/prebuilt/common/etc/permissions/default-permissions-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-product.xml
 
 # Livedisplay
 PRODUCT_COPY_FILES += \
-    vendor/graphene/prebuilt/common/etc/permissions/privapp-permissions-lineagehw.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-lineagehw.xml
+    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-lineagehw.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-lineagehw.xml
 
 # Strip the local variable table and the local variable type table to reduce
 # the size of the system image. This has no bearing on stack traces, but will
@@ -98,7 +98,7 @@ PRODUCT_SYSTEM_PROPERTIES += \
     ro.iorapd.enable=false
 
 PRODUCT_COPY_FILES += \
-    vendor/graphene/prebuilt/common/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+    vendor/aosp/prebuilt/common/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
 
 # Screen Resolution
 TARGET_SCREEN_WIDTH ?= 1080
@@ -107,17 +107,17 @@ TARGET_SCREEN_HEIGHT ?= 1920
 # Boot Animation
 ifeq ($(USE_LEGACY_BOOTANIMATION), true)
 PRODUCT_COPY_FILES += \
-    vendor/graphene/bootanimation/bootanimation_legacy.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+    vendor/aosp/bootanimation/bootanimation_legacy.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 else
 PRODUCT_COPY_FILES += \
-    vendor/graphene/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+    vendor/aosp/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 endif
 
 PRODUCT_COPY_FILES += \
-    vendor/graphene/prebuilt/common/etc/init/init.graphene-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.graphene-updater.rc
+    vendor/aosp/prebuilt/common/etc/init/init.aosp-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.aosp-updater.rc
 
 PRODUCT_COPY_FILES += \
-    vendor/graphene/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
+    vendor/aosp/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
 
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
@@ -162,16 +162,16 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.launcher.blur.appLaunch=false
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/graphene/overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/graphene/overlay/common
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/aosp/overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/common
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # Art
-include vendor/graphene/config/art.mk
+include vendor/aosp/config/art.mk
 
 # Versioning
-include vendor/graphene/config/version.mk
+include vendor/aosp/config/version.mk
 
 # GApps
 WITH_GMS := false

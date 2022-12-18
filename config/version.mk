@@ -20,7 +20,7 @@ else
     BUILD_DATE := $(shell date +%Y%m%d)
 endif
 
-TARGET_PRODUCT_SHORT := $(subst graphene_,,$(DERP_BUILDTYPE))
+TARGET_PRODUCT_SHORT := $(subst aosp_,,$(DERP_BUILDTYPE))
 
 DERP_BUILDTYPE ?= Community
 DERP_CODENAME := Tango
@@ -33,14 +33,14 @@ ifeq ($(DERP_BUILDTYPE), CI)
 endif
 
 PRODUCT_SYSTEM_PROPERTIES += \
-  ro.graphene.build.version=$(DERP_BUILD_VERSION) \
-  ro.graphene.build.date=$(BUILD_DATE) \
-  ro.graphene.buildtype=$(DERP_BUILDTYPE) \
-  ro.graphene.fingerprint=$(ROM_FINGERPRINT) \
-  ro.graphene.version=$(DERP_VERSION) \
+  ro.aosp.build.version=$(DERP_BUILD_VERSION) \
+  ro.aosp.build.date=$(BUILD_DATE) \
+  ro.aosp.buildtype=$(DERP_BUILDTYPE) \
+  ro.aosp.fingerprint=$(ROM_FINGERPRINT) \
+  ro.aosp.version=$(DERP_VERSION) \
   ro.modversion=$(DERP_VERSION)
 
 ifneq ($(OVERRIDE_OTA_CHANNEL),)
 PRODUCT_SYSTEM_PROPERTIES += \
-    graphene.updater.uri=$(OVERRIDE_OTA_CHANNEL)
+    aosp.updater.uri=$(OVERRIDE_OTA_CHANNEL)
 endif

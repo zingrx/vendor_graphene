@@ -2,9 +2,9 @@
 # Graphene Audio Files
 #
 
-ALARM_PATH := vendor/graphene/prebuilt/common/media/audio/alarms
-NOTIFICATION_PATH := vendor/graphene/prebuilt/common/media/audio/notifications
-RINGTONE_PATH := vendor/graphene/prebuilt/common/media/audio/ringtones
+ALARM_PATH := vendor/aosp/prebuilt/common/media/audio/alarms
+NOTIFICATION_PATH := vendor/aosp/prebuilt/common/media/audio/notifications
+RINGTONE_PATH := vendor/aosp/prebuilt/common/media/audio/ringtones
 
 # Alarms
 PRODUCT_COPY_FILES += \

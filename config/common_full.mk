@@ -1,7 +1,7 @@
-# Inherit common grapheneFest stuff
-$(call inherit-product, vendor/graphene/config/common_mobile.mk)
+# Inherit common GrapheneOS stuff
+$(call inherit-product, vendor/aosp/config/common_mobile.mk)
 
 PRODUCT_SIZE := full
 
 # Overlays
-include vendor/graphene/overlay/overlays.mk
+include vendor/aosp/overlay/overlays.mk
